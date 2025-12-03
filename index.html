@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Learn - Learn Anytime Anywhere</title>
+
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    * { font-family: 'Poppins', sans-serif; }
+    .navbar { background-color: #007bff; }
+    .navbar-brand, .nav-link { color: white !important; font-weight: 500; }
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+      url('https://images.unsplash.com/photo-1603570417030-6b0ae2e6e16c?auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white; height: 90vh; display: flex; align-items: center; text-align: center;
+    }
+    .hero h1 { font-size: 3rem; font-weight: 700; }
+    .course-card img { height: 180px; object-fit: cover; }
+    .about-section { background-color: #f8f9fa; padding: 60px 0; }
+    footer { background-color: #343a40; color: white; padding: 20px 0; }
+    footer a { color: #0d6efd; text-decoration: none; }
+
+    /* ===== Login Popup ===== */
+    #overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5); backdrop-filter: blur(5px);
+      display: flex; justify-content: center; align-items: center;
+      z-index: 1000;
+    }
+    #loginBox {
+      background: #fff; border-radius: 12px; box-shadow: 0 0 25px rgba(0,0,0,0.3);
+      width: 380px; padding: 30px; text-align: center;
+      animation: fadeIn .4s ease;
+    }
+    @keyframes fadeIn { from { opacity:0; transform:scale(0.9);} to{opacity:1; transform:scale(1);} }
+    #loginBox h2 { color:#007bff; margin-bottom:20px; }
+    #loginBox input {
+      width:100%; padding:12px; margin:10px 0; border:1px solid #ccc; border-radius:6px;
+    }
+    #loginBox button {
+      width:100%; padding:12px; background:#007bff; border:none; border-radius:6px;
+      color:white; cursor:pointer; font-size:16px; transition:0.3s;
+    }
+    #loginBox button:hover { background:#0056b3; }
+    #loginBox p { font-size:14px; margin-top:10px; }
+    #loginBox a { color:#007bff; font-weight:bold; text-decoration:none; }
+    #loginBox a:hover { text-decoration:underline; }
+    #signupForm { display:none; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">E-Learn</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon bg-light"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a id="loginBtn" class="nav-link btn btn-light text-primary px-3" href="#">Login</a></li>
+          <li class="nav-item"><a id="logoutBtn" class="nav-link btn btn-danger text-white px-3 d-none" href="#">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Learn Anytime, Anywhere</h1>
+      <p class="lead mt-3 mb-4">Join thousands of learners and boost your career with our online courses.</p>
+      <a href="#" class="btn btn-primary btn-lg">Start Learning</a>
+    </div>
+  </section>
+
+  <!-- Courses -->
+  <section class="container my-5">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Popular Courses</h2>
+      <p>Explore top trending online courses</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card course-card shadow">
+          <img src="https://images.unsplash.com/photo-1581093588401-22f4fa5e1b03?auto=format&fit=crop&w=800&q=80">
+          <div class="card-body">
+            <h5>Web Development</h5>
+            <p>Learn to build modern, responsive websites using HTML, CSS, and JS.</p>
+            <a href="#" class="btn btn-outline-primary">Enroll Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card course-card shadow">
+          <img src="https://images.unsplash.com/photo-1584697964403-42aef2a96228?auto=format&fit=crop&w=800&q=80">
+          <div class="card-body">
+            <h5>Python Programming</h5>
+            <p>Master Python fundamentals and apply them to real-world projects.</p>
+            <a href="#" class="btn btn-outline-primary">Enroll Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card course-card shadow">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80">
+          <div class="card-body">
+            <h5>Data Science</h5>
+            <p>Analyze data, build models, and visualize insights using Python.</p>
+            <a href="#" class="btn btn-outline-primary">Enroll Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about-section text-center">
+    <div class="container">
+      <h2 class="fw-bold mb-4">Why Choose E-Learn?</h2>
+      <p class="lead mb-4">We provide high-quality courses from top instructors, interactive lessons, and certificates to help you succeed.</p>
+      <a href="#" class="btn btn-primary">Learn More</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container text-center">
+      <p>© 2025 E-Learn | All Rights Reserved</p>
+      <p><a href="#">Privacy Policy</a> | <a href="#">Terms</a></p>
+    </div>
+  </footer>
+
+  <!-- Login Popup -->
+  <div id="overlay" style="display:none;">
+    <div id="loginBox">
+      <div id="loginForm">
+        <h2>Login to E-Learn</h2>
+        <input type="email" id="loginEmail" placeholder="Email" required>
+        <input type="password" id="loginPass" placeholder="Password" required>
+        <button onclick="loginUser()">Login</button>
+        <p><a href="#" onclick="showSignup()">Create Account</a></p>
+      </div>
+      <div id="signupForm">
+        <h2>Create Account</h2>
+        <input type="text" id="signupName" placeholder="Full Name" required>
+        <input type="email" id="signupEmail" placeholder="Email" required>
+        <input type="password" id="signupPass" placeholder="Password" required>
+        <button onclick="signupUser()">Sign Up</button>
+        <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const overlay = document.getElementById('overlay');
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    // Show popup if not logged in
+    window.onload = () => {
+      if (localStorage.getItem('loggedIn') !== 'true') {
+        overlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      } else {
+        logoutBtn.classList.remove('d-none');
+        loginBtn.classList.add('d-none');
+      }
+    };
+
+    function showSignup() {
+      loginForm.style.display = 'none';
+      signupForm.style.display = 'block';
+    }
+    function showLogin() {
+      signupForm.style.display = 'none';
+      loginForm.style.display = 'block';
+    }
+
+    function loginUser() {
+      const email = document.getElementById('loginEmail').value;
+      const pass = document.getElementById('loginPass').value;
+      if (email && pass) {
+        localStorage.setItem('loggedIn', 'true');
+        overlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        loginBtn.classList.add('d-none');
+        logoutBtn.classList.remove('d-none');
+        alert('Welcome back to E-Learn!');
+      } else {
+        alert('Please enter your email and password.');
+      }
+    }
+
+    function signupUser() {
+      const name = document.getElementById('signupName').value;
+      const email = document.getElementById('signupEmail').value;
+      const pass = document.getElementById('signupPass').value;
+      if (name && email && pass) {
+        localStorage.setItem('loggedIn', 'true');
+        overlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        loginBtn.classList.add('d-none');
+        logoutBtn.classList.remove('d-none');
+        alert('Account created successfully!');
+      } else {
+        alert('Please fill all fields.');
+      }
+    }
+
+    logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('loggedIn');
+      overlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      loginBtn.classList.remove('d-none');
+      logoutBtn.classList.add('d-none');
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
