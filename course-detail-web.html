@@ -1,47 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Web Development | E-Learn</title>
-<style>
-  :root { --theme-color: #6F42C1; }
-  body { font-family: Arial, sans-serif; margin: 0; background: #f9f9f9; }
-  header { background: var(--theme-color); color: #fff; padding: 15px; text-align: center; }
-  nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
-  .container { width: 90%; max-width: 900px; margin: 30px auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-  h2 { color: var(--theme-color); }
-  video { width: 100%; border-radius: 6px; margin-bottom: 15px; }
-  a.btn, a.btn-back { display: inline-block; padding: 10px 20px; color: #fff; text-decoration: none; border-radius: 5px; margin-top: 10px; }
-  a.btn { background: var(--theme-color); }
-  a.btn-back { background: gray; }
-  footer { background: #222; color: #fff; text-align: center; padding: 10px; margin-top: 20px; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Development | E-Learn</title>
+  <style>
+    :root {
+      --theme-color: #6F42C1;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+    }
+
+    header {
+      background: var(--theme-color);
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 900px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: var(--theme-color);
+    }
+
+    video {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    a.btn,
+    a.btn-back {
+      display: inline-block;
+      padding: 10px 20px;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    a.btn {
+      background: var(--theme-color);
+    }
+
+    a.btn-back {
+      background: gray;
+    }
+
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+  </style>
 </head>
+
 <body>
-<header>
-  <h1>E-Learn | Web Development</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="courses.html">Courses</a>
-  </nav>
-</header>
+  <header>
+    <h1>E-Learn | Web Development</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+    </nav>
+  </header>
 
-<div class="container">
-  <h2>Web Development Bootcamp</h2>
-  <p>Learn HTML, CSS, and JavaScript to create responsive websites.</p>
-  <video controls>
-    <source src="videos/web-intro.mp4" type="video/mp4">
-  </video>
-  <h3>Download Notes</h3>
-  <ul>
-    <li><a href="notes/html-css.pdf">HTML & CSS Notes</a></li>
-    <li><a href="notes/js-basics.pdf">JavaScript Basics</a></li>
-  </ul>
-  <a href="quiz/web-quiz.html" class="btn">Start Quiz</a>
-  <a href="courses.html" class="btn-back">← Back</a>
-</div>
+  <div class="container">
+    <h2>Web Development Bootcamp</h2>
+    <p>Learn HTML, CSS, and JavaScript to create responsive websites.</p>
+    <div
+      style="position: relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:6px; margin-bottom:15px;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/HVjjoMvutj4?si=0CW5cbJxxgdiuDb6"
+        title="YouTube video player" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <h3>Download Notes</h3>
+    <ul>
+      <li><a href="notes/html-css.pdf">HTML & CSS Notes</a></li>
+      <li><a href="notes/js-basics.pdf">JavaScript Basics</a></li>
+    </ul>
+    <a href="quiz/web-quiz.html" class="btn">Start Quiz</a>
+    <a href="courses.html" class="btn-back">← Back</a>
+  </div>
 
-<footer>© 2025 E-Learn. All rights reserved.</footer>
+  <footer>© 2025 E-Learn. All rights reserved.</footer>
 </body>
+
 </html>
